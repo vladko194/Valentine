@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Will You Be My Valentine?</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-width: 330px;
+      width: 90%;
+    }
+    #firstscreen {
+      width: 120px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 22px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #yesBtn {
+      background: #ff4d88;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ddd;
+      color: #333;
+      position: absolute;
+      left: 150px;
+      top: 0;
+    }
+
+    .result {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .result img {
+      max-width: 100%;
+      border-radius: 15px;
+    }
+
+    .result h2 {
+      color: #ff4d88;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIRST SCREEN -->
+  <div class="card" id="question">
+    <img id = "firstscreen" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT80Z38zg8S-DiZ1vBnRlHRnkwL18B0TQqqnw&s" alt="Cute cat">
+    <h1>Will you be my Valentine Viki? 💖</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+
+  <div class="card result" id="result">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWJmYjB6bXBxYWw2b2I5ZjBzZmhzcmZtdnl1c2w1bDVwZXR5Y2dqNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l4pTdcifPZLpDjL1e/giphy.gif" alt="Happy Valentine">
+    <h2>I am happy that you are my Valentine i will give you all my love and it will be the best Valentine you will ever have ❤️</h2>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const question = document.getElementById("question");
+    const result = document.getElementById("result");
+
+    function moveNoButton() {
+      const x = Math.random() * 200;
+      const y = Math.random() * 80;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Move constantly
+    noBtn.addEventListener("mouseover", moveNoButton);
+    noBtn.addEventListener("touchstart", moveNoButton);
+
+    yesBtn.addEventListener("click", () => {
+      question.style.display = "none";
+      result.style.display = "flex";
+    });
+  </script>
+
+</body>
+</html>
